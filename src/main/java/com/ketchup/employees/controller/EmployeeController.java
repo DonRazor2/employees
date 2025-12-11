@@ -2,6 +2,7 @@ package com.ketchup.employees.controller;
 
 import com.ketchup.employees.dao.EmployeeDAO;
 import com.ketchup.employees.entity.Employee;
+import com.ketchup.employees.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +14,15 @@ import java.util.List;
 @RequestMapping("/api/employees")
 public class EmployeeController {
 
-    private final EmployeeDAO employeeDAO;
+    private final EmployeeService employeeService;
 
     @Autowired
-    public EmployeeController(EmployeeDAO theEmployeeDAO) {
-        employeeDAO = theEmployeeDAO;
+    public EmployeeController(EmployeeService theEmployeeService) {
+        employeeService = theEmployeeService;
     }
 
     @GetMapping
     public List<Employee> findAll() {
-        return employeeDAO.findAll();
+        return employeeService.findAll();
     }
 }
