@@ -8,4 +8,7 @@ import java.util.List;
 public interface EmployeeService {
 
     List<Employee> findAll();
+
+    Employee findById(final int id);
+
 }
